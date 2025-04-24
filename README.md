@@ -84,17 +84,11 @@ jobs:
           name: test-results
           path: '**/TestResults/*.trx'
 ```
-## 🧪 Tests y requisitos
+## 🧪 Proyecto de SpecFlow
 
-Asegúrate de tener al menos un proyecto de pruebas con uno de los siguientes frameworks:
+En esta plantilla de repositorio, se incluye un **proyecto de SpecFlow** que es el que se compila y se ejecutan los tests automatizados. SpecFlow es una herramienta de pruebas basada en BDD (Behavior Driven Development) que permite escribir pruebas en un lenguaje natural, facilitando la colaboración entre desarrolladores y stakeholders.
 
-- **NUnit / XUnit / MSTest**: Frameworks populares para la ejecución de pruebas unitarias.
-- **FluentAssertions / Moq**: Herramientas para realizar aserciones avanzadas y crear mocks en tus pruebas.
-- **SpecFlow** (opcional): Framework para pruebas BDD (Behavior-Driven Development) si deseas escribir pruebas de una manera más legible y cercana al lenguaje natural.
-
-Es importante tener un enfoque adecuado para la cobertura de pruebas, lo que asegurará que tu código sea confiable y esté libre de errores.
-
----
+El flujo de integración continua está configurado para compilar y ejecutar los tests de este proyecto de SpecFlow, asegurando que las pruebas se ejecuten correctamente antes de permitir cualquier merge a las ramas `dev` o `main`.
 
 ## 📦 Próximos pasos
 
