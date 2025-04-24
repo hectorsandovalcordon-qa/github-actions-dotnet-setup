@@ -36,8 +36,6 @@ jobs:
           cd ./SpecFlowPlaywright
           # Instalar el paquete Playwright para .NET en el proyecto
           dotnet add package Microsoft.Playwright
-          # Instalar el tool de Playwright para .NET
-          dotnet tool install --global dotnet-playwright
           # Instalar los navegadores de Playwright
           dotnet playwright install
 
