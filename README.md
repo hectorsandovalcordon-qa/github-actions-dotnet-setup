@@ -1,4 +1,4 @@
-# dotnet-ci-template
+# github-actions-dotnet-setup
 
 Template de proyecto .NET con ramas `main` y `dev`, integración continua con GitHub Actions y configuración de pruebas automatizadas.
 
@@ -23,8 +23,8 @@ Template de proyecto .NET con ramas `main` y `dev`, integración continua con Gi
 3. Crear la rama `dev`:
 
    ```bash
-  git checkout -b dev
-  git push -u origin dev
+   git checkout -b dev
+   git push -u origin dev
    ```
 ## 🔐 Configurar protección de ramas (desde GitHub)
 
