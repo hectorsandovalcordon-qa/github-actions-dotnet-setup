@@ -29,10 +29,16 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore ./SpecFlowPlaywright/SpecFlowPlaywright.csproj --configfile ./NuGet.Config
 
-      # Paso 4: Compilar el proyecto
+      # Paso 4: Instalar Playwright y sus navegadores
+      - name: Install Playwright and browsers
+        run: |
+          npm install -g playwright  # Instalar Playwright
+          npx playwright install     # Instalar los navegadores necesarios
+
+      # Paso 5: Compilar el proyecto
       - name: Build project
         run: dotnet build ./SpecFlowPlaywright/SpecFlowPlaywright.csproj --configuration Release
 
-      # Paso 5: Ejecutar Tests
+      # Paso 6: Ejecutar Tests
       - name: Run SpecFlow tests
         run: dotnet test ./SpecFlowPlaywright/SpecFlowPlaywright.csproj --configuration Release --no-build --logger trx
