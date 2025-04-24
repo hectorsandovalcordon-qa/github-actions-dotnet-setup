@@ -32,11 +32,13 @@ jobs:
       # Paso 4: Instalar Playwright para .NET y los navegadores
       - name: Install Playwright and browsers
         run: |
-          # Instalar el paquete Playwright para .NET
+          # Cambiar al directorio correcto antes de instalar Playwright
+          cd ./SpecFlowPlaywright
+          # Instalar el paquete Playwright para .NET en el proyecto
           dotnet add package Microsoft.Playwright
-          # Asegurarse de que los navegadores estén instalados
+          # Instalar los navegadores de Playwright
           dotnet tool restore
-          dotnet playwright install  # Este es el comando específico para instalar los navegadores
+          dotnet playwright install
 
       # Paso 5: Compilar el proyecto
       - name: Build project
