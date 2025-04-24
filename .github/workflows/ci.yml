@@ -29,11 +29,14 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore ./SpecFlowPlaywright/SpecFlowPlaywright.csproj --configfile ./NuGet.Config
 
-      # Paso 4: Instalar Playwright y sus navegadores
+      # Paso 4: Instalar Playwright para .NET y los navegadores
       - name: Install Playwright and browsers
         run: |
-          npm install -g playwright  # Instalar Playwright
-          npx playwright install     # Instalar los navegadores necesarios
+          # Instalar el paquete Playwright para .NET
+          dotnet add package Microsoft.Playwright
+          # Asegurarse de que los navegadores estén instalados
+          dotnet tool restore
+          dotnet playwright install  # Este es el comando específico para instalar los navegadores
 
       # Paso 5: Compilar el proyecto
       - name: Build project
