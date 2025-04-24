@@ -46,7 +46,7 @@ Para eliminar automáticamente las ramas después de que un Pull Request sea apr
 2. Desplázate hacia abajo hasta la sección **Pull Requests**.
 3. Marca la opción **Automatically delete head branches**.
 
-Esto hará que GitHub elimine automáticamente las ramas de origen de los Pull Requests después de que el merge haya sido completado.
+> **Nota importante**: GitHub **solo eliminará la rama de origen** del Pull Request (es decir, la rama desde la cual se crea el PR). Si haces un Pull Request de `dev` a `main`, **la rama `dev` no se eliminará automáticamente**. Esta opción solo aplica a **ramas de características** o **hotfixes** (por ejemplo, `feature/login-page` o `bugfix/fix-authentication`), que son las ramas creadas específicamente para el PR y no las ramas principales como `dev` o `main`.
 
 ---
 
