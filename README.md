@@ -17,8 +17,8 @@ Template de proyecto .NET con ramas `main` y `dev`, integración continua con Gi
 2. Clonar el repositorio:
 
    ```bash
-   git clone https://github.com/tu-usuario/dotnet-ci-template.git
-   cd dotnet-ci-template
+   git clone https://github.com/tu-usuario/github-actions-dotnet-setup.git
+   cd github-actions-dotnet-setup
    ```
 3. Crear la rama `dev`:
 
