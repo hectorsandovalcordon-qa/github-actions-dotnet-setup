@@ -27,7 +27,7 @@ jobs:
 
       # Paso 3: Restaurar las dependencias de NuGet
       - name: Restore dependencies
-        run: dotnet restore SpecFlowProject.csproj --configfile ./NuGet.config
+        run: dotnet restore ./src/SpecFlowProject/SpecFlowProject.csproj --configfile ./NuGet.config
 
       # Paso 4: Compilar el proyecto
       - name: Build project
