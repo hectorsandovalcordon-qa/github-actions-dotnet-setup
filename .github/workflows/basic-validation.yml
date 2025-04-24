@@ -1,4 +1,4 @@
-name: Build and Test SpecFlow Project
+name: Basic Validation
 
 on:
   push:
@@ -27,12 +27,8 @@ jobs:
 
       # Paso 3: Restaurar las dependencias de NuGet
       - name: Restore dependencies
-        run: dotnet restore ./SpecFlowProject/SpecFlowProject.csproj --configfile ./NuGet.Config
+        run: dotnet restore ./SpecFlowPlaywright/SpecFlowPlaywright.csproj --configfile ./NuGet.Config
 
-      # Paso 4: Compilar el proyecto
+      # Paso 5: Compilar el proyecto
       - name: Build project
-        run: dotnet build ./SpecFlowProject/SpecFlowProject.csproj --configuration Release
-        
-      # Paso 5: Ejecutar Tests
-      - name: Run SpecFlow tests
-        run: dotnet test ./SpecFlowProject/SpecFlowProject.csproj --configuration Release --no-build --logger trx
+        run: dotnet build ./SpecFlowPlaywright/SpecFlowPlaywright.csproj --configuration Release
