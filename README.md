@@ -38,6 +38,16 @@ Template de proyecto .NET con ramas `main` y `dev`, integración continua con Gi
 
 4. Repite el proceso para la rama `main` con las mismas configuraciones.
 
+### Eliminar ramas automáticamente después del merge
+
+Para eliminar automáticamente las ramas después de que un Pull Request sea aprobado y fusionado, sigue estos pasos:
+
+1. Ve a la sección de **Settings → Options** en tu repositorio.
+2. Desplázate hacia abajo hasta la sección **Merge button**.
+3. Activa la opción **Automatically delete head branches**.
+
+Esto hará que GitHub elimine automáticamente las ramas creadas para los Pull Requests después de que sean mergeadas, manteniendo el repositorio limpio y organizado.
+
 ---
 
 ## ⚙️ GitHub Actions - CI para `dev`
