@@ -31,4 +31,4 @@ jobs:
 
       # Paso 4: Compilar el proyecto
       - name: Build project
-        run: dotnet build SpecFlowSolution.sln --configuration Release
+        run: dotnet build ./SpecFlowProject/SpecFlowProject.csproj --configuration Release
