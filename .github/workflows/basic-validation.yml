@@ -1,4 +1,4 @@
-name: Build and Test SpecFlow Project
+name: Basic Validation
 
 on:
   push:
