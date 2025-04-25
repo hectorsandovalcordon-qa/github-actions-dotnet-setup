@@ -1,6 +1,8 @@
-# github-actions-dotnet-setup
+# specflow-playwright-template
 
-Template de proyecto .NET con ramas `main` y `dev`, integración continua con GitHub Actions y configuración de pruebas automatizadas.
+lantilla de proyecto .NET con ramas main y dev, integración continua con GitHub Actions y configuración de pruebas automatizadas utilizando SpecFlow.
+
+Este repositorio está configurado para facilitar la integración continua (CI) en tus proyectos .NET. Además, incluye un proyecto de SpecFlow para realizar pruebas automatizadas con BDD (Behavior Driven Development), de modo que puedes ejecutarlas como parte del flujo de trabajo de CI.
 
 ---
 
@@ -54,6 +56,7 @@ Para eliminar automáticamente las ramas después de que un Pull Request sea apr
 
 Crea el archivo `.github/workflows/specflow-tests.yml` con el siguiente contenido:
 
+```bash
 name: specflow-tests
 
 on:
@@ -70,10 +73,10 @@ jobs:
       # Paso 1: Checkout del código
       - uses: actions/checkout@v3
 
-      # Paso 2: Setup .NET (puedes ajustar versión si usas otra)
+      # Paso 2: Setup .NET 6.0
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '7.0.x'
+          dotnet-version: '6.0.x'
 
       # Paso 3: Restaurar dependencias
       - run: dotnet restore
@@ -102,8 +105,7 @@ jobs:
         with:
           name: test-results
           path: '**/TestResults/*.trx'
-
-
+```
           
 ## 🧪 Proyecto de SpecFlow
 
