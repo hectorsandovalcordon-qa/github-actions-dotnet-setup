@@ -70,10 +70,10 @@ jobs:
       # Paso 1: Checkout del código
       - uses: actions/checkout@v3
 
-      # Paso 2: Setup .NET (puedes ajustar versión si usas otra)
+      # Paso 2: Setup .NET 6.0
       - uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '7.0.x'
+          dotnet-version: '6.0.x'
 
       # Paso 3: Restaurar dependencias
       - run: dotnet restore
@@ -102,8 +102,6 @@ jobs:
         with:
           name: test-results
           path: '**/TestResults/*.trx'
-
-
           
 ## 🧪 Proyecto de SpecFlow
 
