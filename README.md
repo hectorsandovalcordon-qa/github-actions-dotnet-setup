@@ -50,40 +50,60 @@ Para eliminar automáticamente las ramas después de que un Pull Request sea apr
 
 ---
 
-## ⚙️ GitHub Actions - CI para `dev`
+## ⚙️ GitHub Actions - CI para `dev` y `main`
 
-Crea el archivo `.github/workflows/ci.yml` con el siguiente contenido:
+Crea el archivo `.github/workflows/specflow-tests.yml` con el siguiente contenido:
 
-```yaml
 name: CI - Build & Test
 
 on:
   pull_request:
     branches:
       - dev
+      - main
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
     steps:
+      # Paso 1: Checkout del código
       - uses: actions/checkout@v3
 
+      # Paso 2: Setup .NET (puedes ajustar versión si usas otra)
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '7.0.x'
 
+      # Paso 3: Restaurar dependencias
       - run: dotnet restore
-      - run: dotnet build --no-restore --configuration Release
-      - run: dotnet test --no-build --verbosity normal --logger "trx"
 
+      # Paso 4: Compilar en modo Release
+      - run: dotnet build --no-restore --configuration Release
+
+      # Paso 5: Instalar los navegadores de Playwright
+      - name: Install Playwright Browsers
+        shell: pwsh
+        run: |
+          $pwScript = Get-ChildItem -Path ./bin -Recurse -Filter "playwright.ps1" | Select-Object -First 1
+          if (-not $pwScript) {
+            Write-Error "❌ No se encontró el archivo playwright.ps1"
+            exit 1
+          }
+          & $pwScript.FullName install
+
+      # Paso 6: Ejecutar tests (headless=true debe estar configurado en el código)
+      - run: dotnet test --no-build --configuration Release --logger "trx"
+
+      # Paso 7: Subir resultados
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: test-results
           path: '**/TestResults/*.trx'
-```
+
+          
 ## 🧪 Proyecto de SpecFlow
 
 En esta plantilla de repositorio, se incluye un **proyecto de SpecFlow** que es el que se compila y se ejecutan los tests automatizados. SpecFlow es una herramienta de pruebas basada en BDD (Behavior Driven Development) que permite escribir pruebas en un lenguaje natural, facilitando la colaboración entre desarrolladores y stakeholders.
