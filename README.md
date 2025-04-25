@@ -54,6 +54,7 @@ Para eliminar automáticamente las ramas después de que un Pull Request sea apr
 
 Crea el archivo `.github/workflows/specflow-tests.yml` con el siguiente contenido:
 
+```bash
 name: specflow-tests
 
 on:
@@ -102,6 +103,7 @@ jobs:
         with:
           name: test-results
           path: '**/TestResults/*.trx'
+```
           
 ## 🧪 Proyecto de SpecFlow
 
