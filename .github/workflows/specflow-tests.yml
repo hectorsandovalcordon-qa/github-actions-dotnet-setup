@@ -28,6 +28,10 @@ jobs:
       # Paso 4: Compilar el proyecto
       - name: Build project
         run: dotnet build ./SpecFlowPlaywright/SpecFlowPlaywright.csproj --configuration Release
+        
+      # Paso 5: Instalar navegadores de Playwright
+      - name: Install Playwright Browsers
+        run: pwsh bin/Release/net6.0/playwright.ps1 install
 
       # Paso 5: Ejecutar tests de SpecFlow
       - name: Run SpecFlow Tests
