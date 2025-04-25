@@ -1,6 +1,8 @@
-# github-actions-dotnet-setup
+# specflow-playwright-template
 
-Template de proyecto .NET con ramas `main` y `dev`, integración continua con GitHub Actions y configuración de pruebas automatizadas.
+lantilla de proyecto .NET con ramas main y dev, integración continua con GitHub Actions y configuración de pruebas automatizadas utilizando SpecFlow.
+
+Este repositorio está configurado para facilitar la integración continua (CI) en tus proyectos .NET. Además, incluye un proyecto de SpecFlow para realizar pruebas automatizadas con BDD (Behavior Driven Development), de modo que puedes ejecutarlas como parte del flujo de trabajo de CI.
 
 ---
 
