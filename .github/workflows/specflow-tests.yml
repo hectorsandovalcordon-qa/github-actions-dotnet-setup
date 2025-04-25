@@ -30,8 +30,15 @@ jobs:
         run: dotnet build ./SpecFlowPlaywright/SpecFlowPlaywright.csproj --configuration Release
         
       # Paso 5: Instalar navegadores de Playwright
-      - name: Install Playwright Browsers
-        run: pwsh bin/Release/net6.0/playwright.ps1 install
+      - name: Install Playwright Browsers (auto-detect path)
+        shell: pwsh
+        run: |
+            $pwScript = Get-ChildItem -Path ./SpecFlowPlaywright/bin -Recurse -Filter "playwright.ps1" | Select-Object -First 1
+            if (-not $pwScript) {
+              Write-Error "No se encontró el archivo playwright.ps1"
+              exit 1
+            }
+            & $pwScript.FullName install
 
       # Paso 5: Ejecutar tests de SpecFlow
       - name: Run SpecFlow Tests
