@@ -23,7 +23,7 @@ jobs:
 
       # Paso 3: Restaurar dependencias
       - name: Restore dependencies
-        run: dotnet restore ./SpecFlowPlaywrightProject/SpecFlowPlaywright/SpecFlowPlaywright.csproj --configfile ./NuGet.Config
+        run: dotnet restore ./SpecFlowPlaywrightProject/SpecFlowPlaywright/SpecFlowPlaywright.csproj --configfile ./SpecFlowPlaywrightProject/NuGet.Config
 
       # Paso 4: Compilar el proyecto
       - name: Build project
