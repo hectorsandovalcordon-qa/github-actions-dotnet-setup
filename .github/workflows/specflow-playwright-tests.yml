@@ -7,7 +7,6 @@ on:
       - main
 
 jobs:
-  test:
     name: playwright-tests
     runs-on: ubuntu-latest
 
