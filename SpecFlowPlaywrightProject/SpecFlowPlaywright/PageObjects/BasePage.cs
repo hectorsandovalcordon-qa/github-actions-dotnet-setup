@@ -15,6 +15,7 @@ namespace SpecFlowPlaywright.PageObjects
 
         public async Task OpenAsync(string parameter)
         {
+            //Go to page
             await _page.GotoAsync(_baseUrl + parameter, new()
             {
                 WaitUntil = WaitUntilState.DOMContentLoaded,
