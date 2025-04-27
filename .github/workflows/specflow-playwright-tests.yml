@@ -1,4 +1,4 @@
-name: SpecFlow Tests
+name: SpecFlow Playwright Tests
 
 on:
   pull_request:
